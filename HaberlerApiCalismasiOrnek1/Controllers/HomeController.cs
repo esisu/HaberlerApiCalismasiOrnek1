@@ -9,13 +9,6 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
 {
     public class HomeController : Controller
     {
-        public ILogger<HomeController> Logger1 { get; }
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            Logger1 = logger;
-        }
-
         public IActionResult Index()
         {
             List<Result>? a = new List<Result>();
