@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using RestSharp;
 using RestRequest = RestSharp.RestRequest;
+using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 
 namespace HaberlerApiCalismasiOrnek1.Controllers
 {
@@ -26,6 +27,23 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
                 bool sonuc = haberler != null && haberler.success;
                 a = sonuc ? haberler?.result : new List<Result>();
             }
+
+            ConnectDb connectDb = new ConnectDb();
+
+            HaberContent haberContent = new HaberContent();
+
+            foreach (var item in a)
+            {
+                haberContent.Title = item.name;
+                haberContent.Description = item.description;
+                haberContent.Url = item.url;
+                haberContent.Image = item.image;
+                haberContent.Source = item.source;
+                haberContent.date = item.date;
+            }
+
+            connectDb.Add(haberContent);
+            connectDb.SaveChanges();
 
             return View(a);
         }
