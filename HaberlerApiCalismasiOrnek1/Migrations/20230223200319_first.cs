@@ -12,7 +12,7 @@ namespace HaberlerApiCalismasiOrnek1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "HaberContents",
+                name: "HaberContent",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -22,11 +22,11 @@ namespace HaberlerApiCalismasiOrnek1.Migrations
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Source = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    NewsDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HaberContents", x => x.Id);
+                    table.PrimaryKey("PK_HaberContent", x => x.Id);
                 });
         }
 
@@ -34,7 +34,7 @@ namespace HaberlerApiCalismasiOrnek1.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "HaberContents");
+                name: "HaberContent");
         }
     }
 }

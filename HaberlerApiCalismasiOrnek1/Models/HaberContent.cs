@@ -8,6 +8,6 @@
         public string Url { get; set; }
         public string Image { get; set; }
         public string Source { get; set; }
-        public DateTime date { get; set; }
+        public DateTime NewsDate { get; set; }
     }
 }

@@ -10,7 +10,18 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
 {
     public class HomeController : Controller
     {
+        ConnectDb connectDb = new ConnectDb();
+
         public IActionResult Index()
+        {
+            List<HaberContent>? a = new List<HaberContent>();
+
+            a = connectDb.HaberContent.ToList();
+
+            return View(a);
+        }
+
+        public IActionResult HaberEkle()
         {
             List<Result>? a = new List<Result>();
             var options = new RestClientOptions("https://api.collectapi.com")
@@ -28,30 +39,21 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
                 a = sonuc ? haberler?.result : new List<Result>();
             }
 
-            ConnectDb connectDb = new ConnectDb();
-
-            HaberContent haberContent = new HaberContent();
-
             foreach (var item in a)
             {
+                HaberContent haberContent = new HaberContent();
                 haberContent.Title = item.name;
                 haberContent.Description = item.description;
                 haberContent.Url = item.url;
                 haberContent.Image = item.image;
                 haberContent.Source = item.source;
-                haberContent.date = item.date;
+                haberContent.NewsDate = item.date;
+                connectDb.HaberContent.Add(haberContent);
+                connectDb.SaveChanges();
             }
-
-            connectDb.Add(haberContent);
-            connectDb.SaveChanges();
-
             return View(a);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
     }
 }

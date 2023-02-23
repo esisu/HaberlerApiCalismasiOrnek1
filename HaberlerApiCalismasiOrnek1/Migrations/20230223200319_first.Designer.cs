@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HaberlerApiCalismasiOrnek1.Migrations
 {
     [DbContext(typeof(ConnectDb))]
-    [Migration("20230223141127_first")]
+    [Migration("20230223200319_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -41,6 +41,9 @@ namespace HaberlerApiCalismasiOrnek1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("NewsDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Source")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -53,12 +56,9 @@ namespace HaberlerApiCalismasiOrnek1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
-                    b.ToTable("HaberContents");
+                    b.ToTable("HaberContent");
                 });
 #pragma warning restore 612, 618
         }
