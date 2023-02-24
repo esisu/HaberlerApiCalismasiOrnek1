@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestRequest = RestSharp.RestRequest;
 using HaberlerApiCalismasiOrnek1.DbConnectFolder;
+using System.Linq;
 
 namespace HaberlerApiCalismasiOrnek1.Controllers
 {
@@ -14,11 +15,19 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
 
         public IActionResult Index()
         {
-            List<HaberContent>? a = new List<HaberContent>();
+            List<HaberContent>? mainSlider = new List<HaberContent>();
+            mainSlider = (List<HaberContent>)connectDb.HaberContent.OrderByDescending(x => x.Id).Take(3).ToList();
 
-            a = connectDb.HaberContent.ToList();
+            List<HaberContent>? FourNewsSliderRight = new List<HaberContent>();
+            FourNewsSliderRight = (List<HaberContent>)connectDb.HaberContent.OrderByDescending(x => x.Id).Skip(3).Take(4).ToList();
 
-            return View(a);
+            HomeIndexViewModel homeIndexViewModel = new HomeIndexViewModel()
+            {
+                MainSlider3 = mainSlider,
+                FourNewsSliderRight = FourNewsSliderRight
+            };
+
+            return View(homeIndexViewModel);
         }
 
         public IActionResult HaberEkle()
@@ -51,7 +60,7 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
                 connectDb.HaberContent.Add(haberContent);
                 connectDb.SaveChanges();
             }
-            return View(a);
+            return RedirectToAction("Index", "Home");
         }
 
 
