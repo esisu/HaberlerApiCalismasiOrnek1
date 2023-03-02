@@ -1,17 +1,15 @@
 ﻿using HaberlerApiCalismasiOrnek1.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using Newtonsoft.Json;
 using RestSharp;
 using RestRequest = RestSharp.RestRequest;
 using HaberlerApiCalismasiOrnek1.DbConnectFolder;
-using System.Linq;
 
 namespace HaberlerApiCalismasiOrnek1.Controllers
 {
     public class HomeController : Controller
     {
-        ConnectDb connectDb = new ConnectDb();
+        readonly ConnectDb connectDb = new ConnectDb();
 
         public IActionResult Index()
         {

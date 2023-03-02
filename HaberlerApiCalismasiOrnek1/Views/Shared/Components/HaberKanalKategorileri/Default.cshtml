@@ -1,0 +1,14 @@
+﻿@model List<HaberContent>
+<div class="col-lg-8">
+    <div class="row">
+        <div class="col-12">
+            @foreach (var item in Model)
+            {
+                <div class="section-title">
+                    <h4 class="m-0 text-uppercase font-weight-bold">@item.Source</h4>
+                    <a class="text-secondary font-weight-medium text-decoration-none" asp-action="Index" asp-controller="KategoriDetay" asp-route-categoryname="@item.Source">Tümünü Gör</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

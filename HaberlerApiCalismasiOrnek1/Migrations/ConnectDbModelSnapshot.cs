@@ -55,7 +55,7 @@ namespace HaberlerApiCalismasiOrnek1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HaberContent");
+                    b.ToTable("HaberContent", (string)null);
                 });
 #pragma warning restore 612, 618
         }

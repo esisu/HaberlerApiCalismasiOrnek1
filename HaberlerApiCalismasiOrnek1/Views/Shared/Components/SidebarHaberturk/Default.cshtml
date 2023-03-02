@@ -1,0 +1,31 @@
+﻿@model List<HaberContent>
+<div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">HaberTÜRK Haberleri</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        @foreach (var item in Model)
+        {
+            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
+                <img class="img-fluid" src="@item.Image" alt="@item.Title" width="110" height="100">
+                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                    <div class="mb-2">
+                        <a class="badge badge-primary font-weight-semi-bold p-1 mr-2" href="@item.Url" title="@item.Title" target="_blank">@item.Source</a>
+                        <a class="text-body" href="@item.Url" title="@item.Title" target="_blank"><small>@item.NewsDate</small></a>
+                    </div>
+                    <a class="h6 m-0 text-secondary font-weight-bold" href="@item.Url" title="@item.Title" target="_blank">
+                        @if (@item.Title.Length <= 30)
+                        {
+                            @item.Title
+                        }
+                        else
+                        {
+                            @item.Title.Substring(0, 30)
+                            <span>...</span>
+                        }
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
