@@ -10,7 +10,7 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
     public class HomeController : Controller
     {
         readonly ConnectDb connectDb = new ConnectDb();
-
+        // adem aydemir
         public IActionResult Index()
         {
             List<HaberContent>? mainSlider = new List<HaberContent>();
