@@ -20,7 +20,7 @@
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="@item.Url" title="@item.Title" target="_blank">@item.Source</a>
                             <a class="text-body" href="@item.Url" title="@item.Title" target="_blank"><small>@item.NewsDate</small></a>
                         </div>
-                        <a style="cursor: pointer;" class="d-block mb-3 text-secondary font-weight-bold" title="@item.Title" target="_blank">
+                        <a style="cursor: pointer;" class="d-block mb-3 text-secondary font-weight-bold" title="@item.Title" target="_blank" href="@item.Url">
                             @if (@item.Title.Length <= 80)
                             {
                                 @item.Title
@@ -32,7 +32,7 @@
                             }
                         </a>
                         <p class="m-0">
-                            @item.Description.Substring(0,50) ...  <a style="cursor: pointer;" class="d-block mb-3 font-weight-bold" title="@item.Title" target="_blank">Devamını Oku</a>
+                            @item.Description.Substring(0,50) ...  <a style="cursor: pointer;" href="@item.Url" class="d-block mb-3 font-weight-bold" title="@item.Title" target="_blank">Devamını Oku</a>
                         </p>
                     </div>
                 </div>
