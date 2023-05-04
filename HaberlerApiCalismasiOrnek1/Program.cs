@@ -1,9 +1,15 @@
+using Hangfire;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+builder.Services.AddHangfire(config => config.UseSqlServerStorage("server=DESKTOP-E6SPDSH\\SQLEXPRESS;database=Haberler;integrated security=true;TrustServerCertificate=true;MultipleActiveResultSets=true;"));
+
+builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
@@ -17,6 +23,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseHangfireDashboard("/hangfire");
 
 app.UseRouting();
 
