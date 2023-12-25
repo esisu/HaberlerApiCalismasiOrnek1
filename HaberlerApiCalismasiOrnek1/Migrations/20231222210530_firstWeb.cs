@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HaberlerApiCalismasiOrnek1.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class firstWeb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

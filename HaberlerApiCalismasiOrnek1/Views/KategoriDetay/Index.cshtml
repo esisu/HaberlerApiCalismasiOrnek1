@@ -28,9 +28,25 @@
                                         <a class="text-body" title="@item.NewsDate" href="@item.Url" target="_blank"><small>@item.NewsDate</small></a>
                                     </div>
                                     <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" target="_blank" title="@item.Title" href="@item.Url">
-                                        @item.Title.Substring(0,20)
+                                        @if (@item.Title.Length >= 20)
+                                        {
+                                            @item.Description  <span> ... </span>  <a style="cursor: pointer;" href="@item.Url" class="d-block mb-3 font-weight-bold" title="@item.Title" target="_blank">Devamını Oku</a>
+                                        }
+                                        else
+                                        {
+                                            <span> </span>
+                                        }
                                     </a>
-                                    <p class="m-0">@item.Description.Substring(0, 40)</p>
+                                    <p class="m-0">
+                                        @if (@item.Description.Length>=40)
+                                        {
+                                            @item.Description  <span> ... </span>  <a style="cursor: pointer;" href="@item.Url" class="d-block mb-3 font-weight-bold" title="@item.Title" target="_blank">Devamını Oku</a>
+                                        }
+                                        else
+                                        {
+                                            <span> </span>
+                                        }
+                                    </p>
                                 </div>
                             </div>
                         </div>

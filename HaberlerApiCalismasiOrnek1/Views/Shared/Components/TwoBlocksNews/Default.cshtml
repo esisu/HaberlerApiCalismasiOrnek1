@@ -1,6 +1,4 @@
-﻿@using X.PagedList
-@using X.PagedList.Mvc.Core
-@model List<HaberContent>
+﻿@model List<HaberContent>
 <div class="col-lg-8">
     <div class="row">
         <div class="col-12">
@@ -32,7 +30,14 @@
                             }
                         </a>
                         <p class="m-0">
-                            @item.Description.Substring(0,50) ...  <a style="cursor: pointer;" href="@item.Url" class="d-block mb-3 font-weight-bold" title="@item.Title" target="_blank">Devamını Oku</a>
+                            @if (@item.Description.Length>=50)
+                            {
+                                @item.Description  <span> ... </span>  <a style="cursor: pointer;" href="@item.Url" class="d-block mb-3 font-weight-bold" title="@item.Title" target="_blank">Devamını Oku</a>
+                            }
+                            else
+                            {
+                                <span> </span>
+                            }
                         </p>
                     </div>
                 </div>

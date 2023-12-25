@@ -11,7 +11,7 @@ namespace HaberlerApiCalismasiOrnek1.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            List<HaberContent> haberContents = _connectDb.HaberContent.FromSqlRaw("SELECT TOP 10 * FROM [Haberler].[dbo].[HaberContent] ORDER BY NEWID()").ToList();
+            List<HaberContent> haberContents = _connectDb.HaberContent.FromSqlRaw("SELECT TOP 10 * FROM HaberContent ORDER BY NEWID()").ToList();
 
             return View(haberContents);
         }

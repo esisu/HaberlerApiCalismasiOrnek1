@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HaberlerApiCalismasiOrnek1.Migrations
 {
     [DbContext(typeof(ConnectDb))]
-    [Migration("20230223200319_first")]
-    partial class first
+    [Migration("20231222210530_firstWeb")]
+    partial class firstWeb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

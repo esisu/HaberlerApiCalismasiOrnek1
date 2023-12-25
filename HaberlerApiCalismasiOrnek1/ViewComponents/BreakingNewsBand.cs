@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HaberlerApiCalismasiOrnek1.ViewComponents
 {
-    public class BreakingNewsBand:ViewComponent
+    public class BreakingNewsBand : ViewComponent
     {
         private readonly ConnectDb _connectDb = new ConnectDb();
 
         public IViewComponentResult Invoke()
         {
-            List<HaberContent> haberContents = _connectDb.HaberContent.FromSqlRaw("SELECT TOP 2 * FROM [Haberler].[dbo].[HaberContent] ORDER BY Id DESC").ToList();
+            List<HaberContent> haberContents = _connectDb.HaberContent.FromSqlRaw("SELECT TOP 2 * FROM HaberContent ORDER BY Id DESC").ToList();
 
             return View(haberContents);
         }
