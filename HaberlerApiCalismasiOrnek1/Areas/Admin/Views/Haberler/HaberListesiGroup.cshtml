@@ -3,29 +3,18 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 @model List<GetHaberlerGroupByQueryResult>
-
-!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>
-
-    <!-- DataTales Example -->
+    <h1 class="h3 mb-2 text-gray-800">Haber Listesi</h1>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Haber Sayıları</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            @*<th>Id</th>*@
                             <th>Title</th>
                             <th>Toplam Sayısı</th>
                             <th>İşlemler</th>
@@ -33,7 +22,7 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <td>Id</td>
+                            @*<td>Id</td>*@
                             <td>Title</td>
                             <td>Toplam Sayısı</td>
                             <td>İşlemler</td>
@@ -43,7 +32,7 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Id</td>
+                                @*<td>@item.Id</td>*@
                                 <td>
                                     @if (@item.Title.Length > 100)
                                     {
@@ -56,8 +45,8 @@
                                 </td>
                                 <td>@item.TotalCount</td>
                                 <td>
-                                    <a asp-area="Admin" asp-controller="Haberler" asp-action="UpdateHaber" asp-route-id="@item.Id" class="btn btn-block btn-warning btn-flat">Güncelle</a>
-                                    <a asp-area="Admin" asp-controller="Haberler" asp-action="DeleteHaber" asp-route-id="@item.Id" class="btn btn-block btn-danger btn-flat">Sil</a>
+                                    <a asp-controller="Haberler" asp-action="UpdateHaber" asp-route-id="@item.Title" class="btn btn-block btn-warning btn-flat" asp-area="Admin">Güncelle</a>
+                                    <a asp-controller="Haberler" asp-action="DeleteHaber" asp-route-id="@item.Title" class="btn btn-block btn-danger btn-flat" asp-area="Admin">Sil</a>
                                 </td>
                             </tr>
                         }
@@ -68,4 +57,3 @@
     </div>
 
 </div>
-<!-- /.container-fluid -->

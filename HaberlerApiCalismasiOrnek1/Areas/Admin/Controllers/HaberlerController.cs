@@ -1,13 +1,16 @@
 ﻿using HaberlerApiCalismasiOrnek1.Areas.Admin.Models;
 using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using HaberlerApiCalismasiOrnek1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using X.PagedList;
 
 namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
+
     public class HaberlerController : Controller
     {
 
@@ -41,10 +44,10 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
             //-------------------------------------------------------------------------------------------------------------------------------
 
             var query = connectDb.HaberContent
-                .GroupBy(h => new { h.Id, h.Title })
+                .GroupBy(h => new { h.Title })
                 .Select(g => new
                 {
-                    Id = g.Key.Id,
+                    //Id = g.Key.Id,
                     Title = g.Key.Title,
                     Count = g.Count()
                 });
@@ -57,14 +60,34 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
                 {
                     Title = value.Title,
                     TotalCount = value.Count,
-                    Id = value.Id,
+                    //Id = value.Id,
                 });
             }
 
             return View(haberler);
         }
 
+        [Route("haber-guncelle")]
+        public async Task<IActionResult> UpdateForm(int id)
+        {
+            return RedirectToAction("Index", "Default");
+        }
 
+        [Route("haber-sil")]
+        public IActionResult DeleteForm(int id)
+        {
+            HaberContent values = connectDb.HaberContent.Find(id);
 
+            if (values != null)
+            {
+                connectDb.Remove(values);
+                connectDb.SaveChanges();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Haberler");
+            }
+        }
     }
 }

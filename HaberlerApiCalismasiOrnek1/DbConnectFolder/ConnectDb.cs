@@ -1,9 +1,10 @@
 ﻿using HaberlerApiCalismasiOrnek1.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HaberlerApiCalismasiOrnek1.DbConnectFolder
 {
-    public class ConnectDb : DbContext
+    public class ConnectDb : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
