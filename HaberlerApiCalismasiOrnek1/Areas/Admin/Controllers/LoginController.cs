@@ -19,7 +19,7 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
             _userManager = userManager;
         }
 
-        //[Route("login")]
+        [Route("adminlogin")]
         public IActionResult Index()
         {
             return RedirectToAction("SignIn");

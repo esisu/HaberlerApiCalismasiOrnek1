@@ -13,7 +13,8 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
     public class HomeController : Controller
     {
         static readonly ConnectDb connectDb = new();
-        // adem aydemir
+
+        [Route("anasayfa")]
         public IActionResult Index()
         {
             List<HaberContent>? mainSlider = new();
@@ -28,6 +29,7 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
             return View(homeIndexViewModel);
         }
 
+        [Route("haberekle")]
         public IActionResult HaberEkle()
         {
             ReportingJob();

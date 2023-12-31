@@ -17,7 +17,7 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
             _signInManager = signInManager;
         }
 
-        [Route("default")]
+        [Route("adminanasayfa")]
         public async Task<IActionResult> Index()
         {
             return View();

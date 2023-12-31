@@ -8,9 +8,10 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
     {
         readonly ConnectDb connectDb = new ConnectDb();
 
+        [Route("kategoridetay")]
         public IActionResult Index(string categoryname)
         {
-            List<HaberContent> newsList = (List<HaberContent>)connectDb.HaberContent.Where(x=>x.Source==categoryname).OrderByDescending(x => x.Id).ToList();
+            List<HaberContent> newsList = (List<HaberContent>)connectDb.HaberContent.Where(x => x.Source == categoryname).OrderByDescending(x => x.Id).ToList();
 
             HaberContent source = connectDb.HaberContent.FirstOrDefault(x => x.Source == categoryname);
 
