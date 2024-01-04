@@ -3,7 +3,6 @@ using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using HaberlerApiCalismasiOrnek1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using X.PagedList;
 
 namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers

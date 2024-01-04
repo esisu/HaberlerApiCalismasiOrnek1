@@ -14,7 +14,7 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
     {
         static readonly ConnectDb connectDb = new();
 
-        [Route("anasayfa")]
+        [Route("")]
         public IActionResult Index()
         {
             List<HaberContent>? mainSlider = new();

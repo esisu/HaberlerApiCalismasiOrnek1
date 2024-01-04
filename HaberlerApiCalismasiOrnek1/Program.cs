@@ -1,7 +1,6 @@
 using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using HaberlerApiCalismasiOrnek1.Models;
 using Hangfire;
-using Hangfire.Dashboard;
 
 var builder = WebApplication.CreateBuilder(args);
 
