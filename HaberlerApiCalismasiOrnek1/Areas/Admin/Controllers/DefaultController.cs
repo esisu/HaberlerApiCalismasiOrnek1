@@ -1,7 +1,10 @@
-﻿using HaberlerApiCalismasiOrnek1.Models;
+﻿using HaberlerApiCalismasiOrnek1.Areas.Admin.Models;
+using HaberlerApiCalismasiOrnek1.DbConnectFolder;
+using HaberlerApiCalismasiOrnek1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
 {
@@ -10,6 +13,8 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
 
     public class DefaultController : Controller
     {
+        private ConnectDb connectDb = new ConnectDb();
+
         private readonly SignInManager<AppUser> _signInManager;
 
         public DefaultController(SignInManager<AppUser> signInManager)

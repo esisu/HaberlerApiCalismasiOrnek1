@@ -3,6 +3,9 @@ using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using HaberlerApiCalismasiOrnek1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 using X.PagedList;
 
 namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
@@ -18,7 +21,7 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
         [Route("haberlistesi")]
         public async Task<IActionResult> Index()
         {
-            List<HaberContent> values = await connectDb.HaberContent.OrderByDescending(x => x.Id).ToListAsync();
+            List<HaberContent> values = await PagedListExtensions.ToListAsync(connectDb.HaberContent.OrderByDescending(x => x.Id));
             return View(values);
         }
 
@@ -51,7 +54,7 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
                     Count = g.Count()
                 });
 
-            var results = await query.ToListAsync();
+            var results = await PagedListExtensions.ToListAsync(query);
 
             foreach (var value in results)
             {
@@ -88,5 +91,21 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Haberler");
             }
         }
+
+
+        [Route("ayni-haberleri-sil")]
+        public IActionResult AyniHaberleriSil()
+        {
+
+
+            connectDb.HaberContent.FromSqlRaw("Delete from HaberContent where Id in ( Select MAX(Id) From HaberContent Group By Title Having Count (Title) > 1 )");
+
+            //connectDb.RemoveRange(x);
+            //connectDb.SaveChanges();
+
+
+            return RedirectToAction("Index", "Haberler");
+        }
+
     }
 }

@@ -19,8 +19,8 @@
             {
                 <div class="mb-3">
                     <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" title="@item.Title" href="@item.Url">@item.Source</a>
-                        <a class="text-body" title="@item.Title" href="@item.Url"><small>@item.NewsDate</small></a>
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" title="@item.Title" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id">@item.Source</a>
+                        <a class="text-body" title="@item.Title" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id"><small>@item.NewsDate</small></a>
                     </div>
                     <a class="small text-body text-uppercase font-weight-medium" target="_blank" title="@item.Title" href="@item.Url">@item.Title</a>
                 </div>

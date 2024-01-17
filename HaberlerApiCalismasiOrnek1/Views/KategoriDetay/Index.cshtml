@@ -24,8 +24,8 @@
                                 <img class="img-fluid w-100" src="@item.Image" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" target="_blank" title="@item.Title" href="@item.Url">@item.Source</a>
-                                        <a class="text-body" title="@item.NewsDate" href="@item.Url" target="_blank"><small>@item.NewsDate</small></a>
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" title="@item.Title" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id">@item.Source</a>
+                                        <a class="text-body" title="@item.NewsDate" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id"><small>@item.NewsDate</small></a>
                                     </div>
                                     <a class="d-block mb-3 text-secondary text-uppercase font-weight-bold" target="_blank" title="@item.Title" href="@item.Url">
                                         @if (@item.Title.Length >= 20)

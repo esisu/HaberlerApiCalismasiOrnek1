@@ -10,7 +10,7 @@
                         @foreach (var item in Model)
                         {
                             <div class="text-truncate">
-                                <a class="text-white text-uppercase font-weight-semi-bold" href="@item.Url" target="_blank" title="@item.Title">
+                                <a class="text-white text-uppercase font-weight-semi-bold" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id" title="@item.Title">
                                     @item.Title
                                     </a>
                             </div>

@@ -15,19 +15,19 @@
 <body id="page-top">
     <div id="wrapper">
         <partial name="Partial/LeftMenu_Partial"></partial>
-            <div id="content-wrapper" class="d-flex flex-column">
-                <div id="content">
-                    <partial name="Partial/TopMenuBar_Partial"></partial>
-                    @RenderBody()
-                </div>
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Haberler API Admin Panel @DateTime.Now.Year</span>
-                        </div>
-                    </div>
-                </footer>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <partial name="Partial/TopMenuBar_Partial"></partial>
+                @RenderBody()
             </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Haberler API Admin Panel @DateTime.Now.Year</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -60,5 +60,9 @@
     <script src="~/admin/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="~/admin/js/demo/datatables-demo.js"></script>
+
+    @await Component.InvokeAsync("_DashboardSourceCountPieChart")
+
+
 </body>
 </html>

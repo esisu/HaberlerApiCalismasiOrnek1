@@ -1,4 +1,5 @@
-﻿using HaberlerApiCalismasiOrnek1.Models;
+﻿using System.Globalization;
+using HaberlerApiCalismasiOrnek1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
@@ -7,6 +8,9 @@ using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using System.Net;
 using System.Net.Mail;
 using Hangfire;
+using NewsAPI;
+using NewsAPI.Constants;
+using NewsAPI.Models;
 
 namespace HaberlerApiCalismasiOrnek1.Controllers
 {
@@ -77,6 +81,7 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
                 connectDb.HaberContent.Add(haberContent);
                 connectDb.SaveChanges();
             }
+            HaberGetirNewsApi();
             MailGonder();
         }
 
@@ -100,6 +105,32 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
             client.EnableSsl = true; // gmail olduğunda true yapıyoruz
             client.EnableSsl = false;
             client.Send(mesaj);
+        }
+
+        public static void HaberGetirNewsApi()
+        {
+            var options = new RestClientOptions("https://newsdata.io")
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/1/news?apikey=pub_3613149184d607336c57f5b78f2d507aad1a9&language=tr", Method.Get);
+            RestResponse response = client.Execute(request);
+            Models.NewsDataIO.Root root = JsonConvert.DeserializeObject<Models.NewsDataIO.Root>(response.Content);
+            List<Models.NewsDataIO.Result> list = root.results.ToList();
+            foreach (var result in list)
+            {
+                HaberContent haberContent = new HaberContent();
+                haberContent.Title = result.title;
+                haberContent.Description = result.content;
+                haberContent.Image = result.image_url;
+                haberContent.Url = result.link;
+                haberContent.NewsDate = Convert.ToDateTime(result.pubDate);
+                haberContent.Source = result.source_id;
+                connectDb.HaberContent.Add(haberContent);
+                connectDb.SaveChanges();
+            }
+            MailGonder();
         }
 
     }

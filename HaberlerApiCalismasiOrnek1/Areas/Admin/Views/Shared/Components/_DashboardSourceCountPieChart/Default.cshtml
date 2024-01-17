@@ -1,0 +1,64 @@
+﻿@model List<SourceAndCountViewModel>
+
+@* @foreach (var item in Model)
+{
+    <p>@item.Source --- @item.SourceCount</p>
+}
+ *@
+
+<script>
+    var source = [];
+    var sourceCount = [];
+    // var sourceColor = [];
+    // var sourceHoverColor = [];
+    // var sourceBorderColor = [];
+    @if (Model.Count > 0)
+    {
+        
+        foreach (var item in Model)
+        {
+            @:source.push('@item.Source');
+            @:sourceCount.push(@item.SourceCount);
+            // @:sourceColor.push(@item.SourceColor);
+            // @:sourceHoverColor.push(@item.SourceHoverColor);
+            // @:sourceBorderColor.push(@item.SourceBorderColor);
+        }
+    }
+    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = '#858796';
+    var ctx = document.getElementById("myPieChart123");
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            //labels: ["Direct", "Referral", "Social"],
+            labels: source,
+            datasets: [{
+                // data: [30, 30, 40],
+                data: sourceCount,
+                backgroundColor: ['red', 'green', 'blue'],
+                //backgroundColor: sourceColor,
+                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                //hoverBackgroundColor: sourceHoverColor,
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+                //hoverBorderColor: sourceBorderColor,
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+</script>

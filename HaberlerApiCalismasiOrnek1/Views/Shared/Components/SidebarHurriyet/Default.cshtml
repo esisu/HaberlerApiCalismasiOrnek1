@@ -10,10 +10,10 @@
                 <img class="img-fluid" src="@item.Image" alt="@item.Title" width="110" height="100">
                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                     <div class="mb-2">
-                        <a class="badge badge-primary font-weight-semi-bold p-1 mr-2" href="@item.Url" title="@item.Title" target="_blank">@item.Source</a>
-                        <a class="text-body" href="@item.Url" title="@item.Title" target="_blank"><small>@item.NewsDate</small></a>
+                        <a class="badge badge-primary font-weight-semi-bold p-1 mr-2"  title="@item.Title" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id">@item.Source</a>
+                        <a class="text-body" title="@item.Title" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id"><small>@item.NewsDate</small></a>
                     </div>
-                    <a class="h6 m-0 text-secondary font-weight-bold" href="@item.Url" title="@item.Title" target="_blank">
+                    <a class="h6 m-0 text-secondary font-weight-bold" title="@item.Title" asp-controller="HaberDetay" asp-action="Index" asp-route-id="@item.Id">
                         @if (@item.Title.Length <= 30)
                         {
                             @item.Title
