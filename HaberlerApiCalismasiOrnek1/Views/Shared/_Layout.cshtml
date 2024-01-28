@@ -4,6 +4,13 @@
 <html lang="en">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MRJL3B5W');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <title>HaberTRendol.com | Anasayfa</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -28,16 +35,20 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid d-none d-lg-block">
-        <div class="row align-items-center bg-dark px-lg-5">
-            <div class="col-lg-9">
-                <nav class="navbar navbar-expand-sm bg-dark p-0">
-                    <ul class="navbar-nav ml-n2">
-                        <li class="nav-item border-right border-secondary">
-                            <a class="nav-link text-body small" href="#">@DateTime.Now.ToString("dddd, MMMM dd, yyyy h:mm:ss tt", new CultureInfo("tr-TR"))</a>
-                        </li>
-                        @* <li class="nav-item border-right border-secondary">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRJL3B5W"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Topbar Start -->
+<div class="container-fluid d-none d-lg-block">
+    <div class="row align-items-center bg-dark px-lg-5">
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-sm bg-dark p-0">
+                <ul class="navbar-nav ml-n2">
+                    <li class="nav-item border-right border-secondary">
+                        <a class="nav-link text-body small" href="#">@DateTime.Now.ToString("dddd, MMMM dd, yyyy h:mm:ss tt", new CultureInfo("tr-TR"))</a>
+                    </li>
+                    @* <li class="nav-item border-right border-secondary">
                         <a class="nav-link text-body small" href="#">Advertise</a>
                         </li>
                         <li class="nav-item border-right border-secondary">
@@ -46,13 +57,13 @@
                         <li class="nav-item">
                         <a class="nav-link text-body small" href="#">Login</a>
                         </li>*@
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-3 text-right d-none d-md-block">
-                <nav class="navbar navbar-expand-sm bg-dark p-0">
-                    <ul class="navbar-nav ml-auto mr-n2">
-                        @*<li class="nav-item">
+                </ul>
+            </nav>
+        </div>
+        <div class="col-lg-3 text-right d-none d-md-block">
+            <nav class="navbar navbar-expand-sm bg-dark p-0">
+                <ul class="navbar-nav ml-auto mr-n2">
+                    @*<li class="nav-item">
                         <a class="nav-link text-body" href="#"><small class="fab fa-twitter"></small></a>
                         </li>
                         <li class="nav-item">
@@ -70,37 +81,37 @@
                         <li class="nav-item">
                         <a class="nav-link text-body" href="#"><small class="fab fa-youtube"></small></a>
                         </li>*@
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="row align-items-center bg-white py-3 px-lg-5">
-            <div class="col-lg-4">
-                <a asp-action="Index" asp-controller="Home" class="navbar-brand p-0 d-none d-lg-block">
-                    <h1 class="m-0 display-4 text-primary"><img src="/1/img/habertrendol-logo.png" alt="HaberTRendol" width="100" height="90" /></h1>
-                </a>
-            </div>
-            <div class="col-lg-8 text-center text-lg-right">
-                <a href=""><img class="img-fluid" src="~/1/img/ads-728x90.png" alt=""></a>
-            </div>
+                </ul>
+            </nav>
         </div>
     </div>
-    <!-- Topbar End -->
-    <!-- Navbar Start -->
-    <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
-            <a asp-controller="Home" asp-action="Index" title="Anasayfa" class="navbar-brand d-block d-lg-none">
-                <h1 class="m-0 display-4 text-uppercase text-primary"><img src="/1/img/habertrendol-logo.png" alt="HaberTRendol" width="100" height="90" /></h1>
+    <div class="row align-items-center bg-white py-3 px-lg-5">
+        <div class="col-lg-4">
+            <a asp-action="Index" asp-controller="Home" class="navbar-brand p-0 d-none d-lg-block">
+                <h1 class="m-0 display-4 text-primary"><img src="/1/img/habertrendol-logo.png" alt="HaberTRendol" width="100" height="90"/></h1>
             </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
-                <div class="navbar-nav mr-auto py-0">
-                    <a asp-controller="Home" asp-action="Index" title="Anasayfa" class="nav-item nav-link active">Anasayfa</a>
-                    <a asp-action="Index" asp-controller="HaberKanallari" title="Haber Kanalları" class="nav-item nav-link">Haber Kanalları</a>
-                    @*<a href="single.html" class="nav-item nav-link">Single News</a>*@
-                    @*<div class="nav-item dropdown">
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+            <a href=""><img class="img-fluid" src="~/1/img/ads-728x90.png" alt=""></a>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- Navbar Start -->
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+        <a asp-controller="Home" asp-action="Index" title="Anasayfa" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-4 text-uppercase text-primary"><img src="/1/img/habertrendol-logo.png" alt="HaberTRendol" width="100" height="90"/></h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav mr-auto py-0">
+                <a asp-controller="Home" asp-action="Index" title="Anasayfa" class="nav-item nav-link active">Anasayfa</a>
+                <a asp-action="Index" asp-controller="HaberKanallari" title="Haber Kanalları" class="nav-item nav-link">Haber Kanalları</a>
+                @*<a href="single.html" class="nav-item nav-link">Single News</a>*@
+                @*<div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
                     <div class="dropdown-menu rounded-0 m-0">
                     <a href="#" class="dropdown-item">Menu item 1</a>
@@ -108,9 +119,9 @@
                     <a href="#" class="dropdown-item">Menu item 3</a>
                     </div>
                     </div>*@
-                    <a href="contact.html" class="nav-item nav-link">İletişim</a>
-                </div>
-               @* <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
+                <a href="contact.html" class="nav-item nav-link">İletişim</a>
+            </div>
+            @* <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control border-0" placeholder="Arama">
                     <div class="input-group-append">
                         <button class="input-group-text bg-primary text-dark border-0 px-3">
@@ -118,26 +129,26 @@
                         </button>
                     </div>
                 </div>*@
-            </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
-    @RenderBody()
-    <!-- Footer Start -->
-    @await Component.InvokeAsync("Footer")
-    <!-- Footer End -->
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+@RenderBody()
+<!-- Footer Start -->
+@await Component.InvokeAsync("Footer")
+<!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="~/1/lib/easing/easing.min.js"></script>
-    <script src="~/1/lib/owlcarousel/owl.carousel.min.js"></script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/1/lib/easing/easing.min.js"></script>
+<script src="~/1/lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="~/1/js/main.js"></script>
+<!-- Template Javascript -->
+<script src="~/1/js/main.js"></script>
 </body>
 
 </html>

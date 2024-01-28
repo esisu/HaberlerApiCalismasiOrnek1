@@ -1,3 +1,4 @@
+
 using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using HaberlerApiCalismasiOrnek1.Models;
 using Hangfire;
@@ -40,6 +41,8 @@ builder.Services.ConfigureApplicationCookie(options =>
     //using Microsoft.AspNetCore.Authentication.Cookies;
     //options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
 });
+
+
 
 var app = builder.Build();
 

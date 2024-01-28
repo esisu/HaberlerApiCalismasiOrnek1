@@ -1871,6 +1871,8 @@
 	  <None Include="wwwroot\Admin\vendor\jquery\jquery.slim.js" />
 	  <None Include="wwwroot\Admin\vendor\jquery\jquery.slim.min.js" />
 	  <None Include="wwwroot\Admin\vendor\jquery\jquery.slim.min.map" />
+	  <None Include="wwwroot\robots.txt" />
+	  <None Include="wwwroot\sitemap.xml" />
 	</ItemGroup>
 
 </Project>

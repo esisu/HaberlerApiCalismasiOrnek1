@@ -1,0 +1,7 @@
+# robots.txt İHS Telekom tarafından oluşturuldu
+User-agent: *
+Disallow: 
+Disallow: /adminanasayfa/
+Disallow: /giris-yap/
+Disallow: /haberlistesi/
+Sitemap: https://habertrendol.online/sitemap.xml
