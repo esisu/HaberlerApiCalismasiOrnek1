@@ -30,6 +30,9 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
                 MainSlider3 = mainSlider,
                 FourNewsSliderRight = FourNewsSliderRight
             };
+
+            string ipAddress = RockBreakerNugget.IpHelper.GetIpAddress();
+
             return View(homeIndexViewModel);
         }
 
