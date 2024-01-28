@@ -364,4 +364,4 @@ FodyWeavers.xsd
 /HaberlerApiCalismasiOrnek1/HaberlerApiCalismasiOrnek1.csproj
 /HaberlerApiCalismasiOrnek1/HaberlerApiCalismasiOrnek1.csproj
 /HaberlerApiCalismasiOrnek1/test.txt
-**/HaberlerApiCalismasiOrnek1/wwwroot/**
+**/HaberlerApiCalismasiOrnek1/wwwroot/1/js/**
