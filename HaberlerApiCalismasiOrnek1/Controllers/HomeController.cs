@@ -11,16 +11,42 @@ using Hangfire;
 using NewsAPI;
 using NewsAPI.Constants;
 using NewsAPI.Models;
+using Sentry;
 
 namespace HaberlerApiCalismasiOrnek1.Controllers
 {
     public class HomeController : Controller
     {
         static readonly ConnectDb connectDb = new();
+        public IHub _hub;
+
+        public HomeController(IHub hub)
+        {
+            _hub = hub;
+        }
 
         [Route("")]
         public IActionResult Index()
         {
+
+            var childSpan = _hub.GetSpan()?.StartChild("additional-work");
+
+            try
+            {
+                //var ss = 300;
+
+                //byte asd = Convert.ToByte(ss);
+
+                // Do the work that gets measured.
+
+                childSpan?.Finish(SpanStatus.Ok);
+            }
+            catch (Exception e)
+            {
+                childSpan?.Finish(e);
+                throw;
+            }
+
             List<HaberContent>? mainSlider = new();
             mainSlider = (List<HaberContent>)connectDb.HaberContent.OrderByDescending(x => x.Id).Take(3).ToList();
             List<HaberContent>? FourNewsSliderRight = new();

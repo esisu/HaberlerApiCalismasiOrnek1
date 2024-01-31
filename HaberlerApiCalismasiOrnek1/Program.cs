@@ -2,6 +2,7 @@
 using HaberlerApiCalismasiOrnek1.DbConnectFolder;
 using HaberlerApiCalismasiOrnek1.Models;
 using Hangfire;
+using Sentry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,7 +43,16 @@ builder.Services.ConfigureApplicationCookie(options =>
     //options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
 });
 
-
+builder.WebHost.UseSentry(configureOptions: options =>
+{
+    options.Dsn = "https://086b1bdf942fe832af6c71daf4906135@o4506654596005888.ingest.sentry.io/4506654602821632";
+    options.Debug = true;
+    options.TracesSampleRate = 1.0;
+    options.ConfigureScope(action: scope =>
+    {
+        scope.Level = SentryLevel.Debug;
+    });
+});
 
 var app = builder.Build();
 
@@ -86,5 +96,10 @@ app.MapControllers();
 //        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 //    );
 //});
+
+// Enable automatic tracing integration.
+// If running with .NET 5 or below, make sure to put this middleware
+// right after "UseRouting()".
+app.UseSentryTracing();
 
 app.Run();

@@ -25,6 +25,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="RestSharp" Version="108.0.3" />
 		<PackageReference Include="RockBreaker.Infrastructure.Helper.Tool" Version="1.0.4" />
+		<PackageReference Include="Sentry.AspNetCore" Version="3.41.4" />
 		<PackageReference Include="X.PagedList" Version="8.4.6" />
 		<PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.5" />
 	</ItemGroup>
