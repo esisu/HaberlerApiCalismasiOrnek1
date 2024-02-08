@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 *.txt
+HaberlerApiCalismasiOrnek1/DbConnectFolder/ConnectDb.cs
