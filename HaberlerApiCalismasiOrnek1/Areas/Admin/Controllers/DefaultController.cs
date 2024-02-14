@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Sentry;
 
 namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
 {
@@ -23,7 +24,7 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.Controllers
         }
 
         [Route("adminanasayfa")]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }

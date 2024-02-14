@@ -29,23 +29,23 @@ namespace HaberlerApiCalismasiOrnek1.Controllers
         public IActionResult Index()
         {
 
-            var childSpan = _hub.GetSpan()?.StartChild("additional-work");
+            //var childSpan = _hub.GetSpan()?.StartChild("additional-work");
 
-            try
-            {
-                //var ss = 300;
+            //try
+            //{
+            //    //var ss = 300;
 
-                //byte asd = Convert.ToByte(ss);
+            //    //byte asd = Convert.ToByte(ss);
 
-                // Do the work that gets measured.
+            //    // Do the work that gets measured.
 
-                childSpan?.Finish(SpanStatus.Ok);
-            }
-            catch (Exception e)
-            {
-                childSpan?.Finish(e);
-                throw;
-            }
+            //    childSpan?.Finish(SpanStatus.Ok);
+            //}
+            //catch (Exception e)
+            //{
+            //    childSpan?.Finish(e);
+            //    throw;
+            //}
 
             List<HaberContent>? mainSlider = new();
             mainSlider = (List<HaberContent>)connectDb.HaberContent.OrderByDescending(x => x.Id).Take(3).ToList();

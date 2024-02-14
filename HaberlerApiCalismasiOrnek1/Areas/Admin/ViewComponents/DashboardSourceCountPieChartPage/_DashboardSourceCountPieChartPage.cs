@@ -24,7 +24,6 @@ namespace HaberlerApiCalismasiOrnek1.Areas.Admin.ViewComponents._DashboardSource
 
             var results = query.ToList();
 
-
             Random rand = new Random();
 
             foreach (var value in results.Where(x => x.Count > 50).OrderByDescending(x => x.Count).Take(3))
